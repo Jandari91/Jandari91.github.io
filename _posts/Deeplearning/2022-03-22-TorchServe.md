@@ -14,7 +14,7 @@ TorchServe를 간단히 시작하기 위한 정리입니다.
 Torchserve는 Docker 이미지를 사용합니다.
 
 #### 참고
-https://github.com/pytorch/serve/tree/master/examples/image_classifier/densenet_161
+[https://github.com/pytorch/serve/tree/master/examples/image_classifier/densenet_161](https://github.com/pytorch/serve/tree/master/examples/image_classifier/densenet_161)
 
 
 ## 모델압축
