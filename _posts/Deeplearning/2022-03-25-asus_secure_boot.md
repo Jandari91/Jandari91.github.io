@@ -3,7 +3,7 @@ title: ASUS 보안 부팅 해제
 author: Jandari
 date: 2021-03-25 11:04:00 -0500
 categories: [DeepLearning]
-tags: [Cuda, Setup]
+tags: [CUDA, Setup]
 math: true
 mermaid: true
 ---
