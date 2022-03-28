@@ -2,7 +2,7 @@
 title: TorchServe 맛보기
 author: Jandari
 date: 2021-03-22 17:04:00 -0500
-categories: [Deeplearning, PyTorch, TorchServe]
+categories: [DeepLearning, PyTorch, TorchServe]
 tags: [PyTorch, TorchServe]
 math: true
 mermaid: true
