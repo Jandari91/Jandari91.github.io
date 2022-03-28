@@ -76,4 +76,4 @@ PASSWD=pw1234
 
 #### 예제
 
-[example.zip](/assets/img/post/Container/Docker/2022-03-24-Environment/example.zip)
+[example.zip](/assets/img/post/2022-03-24-Environment/example.zip)

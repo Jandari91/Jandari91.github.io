@@ -46,13 +46,13 @@ compilation terminated.
 
 [https://www.python.org/downloads/source/](https://www.python.org/downloads/source/)
 
-![image](/assets/img/post/DeepLearning/2022-03-28-tensorflow/1.jpg)
+![image](/assets/img/post/2022-03-28-tensorflow/1.jpg)
 
 해당 url로 들어간 후 가장 아래로 스크롤을 내리면 `Files`라고 보입니다.
 
 OS에 맞춰 파일을 다운 받을 수 있는데 저는 `tar.xz` 파일을 받도록 하겠습니다.
 
-![image](/assets/img/post/DeepLearning/2022-03-28-tensorflow/2.jpg)
+![image](/assets/img/post/2022-03-28-tensorflow/2.jpg)
 
 해당 부분에서 마우스 오른쪽 키로 링크를 복사 한후 wget으로 다운 받습니다.
 
