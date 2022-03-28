@@ -175,7 +175,50 @@ $ source ~/python/venv/bin/activate
 
 이런경우 오프라인으로 설치가 가능합니다.
 
+기존의 pip로 패키지를 다운받아 사용 중이던 PC에서 모듈 리스트를 추출합니다.
 
+```
+$ pip freeze > requirements.txt
+```
+
+requirements.txt 파일을 열어보면 아래와 같이 설치되어 있는 패키지의 목록이 나오게 됩니다.
+
+```
+absl-py==1.0.0
+astunparse==1.6.3
+(... 생략 ...)
+tensorboard==2.8.0
+tensorboard-data-server==0.6.1
+tensorboard-plugin-wit==1.8.1
+tensorflow==2.8.0
+tensorflow-datasets==4.5.2
+tensorflow-io-gcs-filesystem==0.24.0
+tensorflow-metadata==1.7.0
+tensorflow-serving-api==2.8.0
+termcolor==1.1.0
+```
+
+해당 목록의 패키지를 다운로드 받습니다.
+
+```
+$ pip download -r requirements.txt
+```
+
+그럼 `.whl`이나 `.tar.gz`으로 현재 경로에 다운로드가 받아집니다.
+
+이제 모든 파일을 오프라인으로 설치하고 싶은 PC로 이동시킵니다.
+
+```
+$ python -m pip install --no-index --find-links="./" -r requirements.txt
+```
+
+requirements.txt에 있는 목록이 일괄 설치 되게 됩니다.
+
+```
+python -m pip install --no-index --find-links="./" schedule-0.6.0-py2.py3-none-any.whl
+```
+
+위와 같이 특정 모듈을 지정하여 설치도 가능합니다.
 
 
 
