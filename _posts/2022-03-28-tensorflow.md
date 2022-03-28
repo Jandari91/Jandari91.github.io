@@ -74,20 +74,14 @@ $sudo tar xvf Python-3.10.4.tar.xz
 
 ```
 $ cd Python-3.10.4
-$ ./configure
+$ ./configure --enable-optimizations
 $ ls | grep Makefile
 Makefile
 Makefile.pre
 Makefile.pre.in
 ```
 
-`Makefile`을 컴파일 합니다.
-
-```
-$ make
-```
-
-컴파일이 끝나면 설치를 진행합니다.
+`Makefile`을 컴파일 및 설치를 진행합니다.
 
 ```
 $ sudo make altinstall
@@ -102,48 +96,6 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 
 설치가 정상적으로 되었고 실행도 정상적으로 가능합니다.
-
-하지만 `python3.10`이라는 명령으로 사용해야 하기 때문에 `alias`를 변경하여 `python`으로만 실행이 가능하도록 설정합니다.
-
-```
-$ vi ~/.bashrc
-```
-
-가장 아래에 `alias python="/usr/local/bin/python3.10"`를 추가합니다.
-
-```
-# .bashrc
-
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-        . /etc/bashrc
-fi
-
-# User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
-then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
-fi
-export PATH
-
-# Uncomment the following line if you don't like systemctl's auto-paging feature:
-# export SYSTEMD_PAGER=
-
-# User specific aliases and functions
-
-alias python="/usr/local/bin/python3.10" # 추가
-```
-
-이제 설정 파일을 적용합니다.
-
-```
-$ source ~/.bashrc
-$ python
-
-Python 3.10.4 (main, Mar 28 2022, 09:47:54) [GCC 8.5.0 20210514 (Red Hat 8.5.0-4)] on linux
-Type "help", "copyright", "credits" or "license" for more information.
->>>
-```
 
 
 ## Tensorflow 설치
@@ -167,7 +119,55 @@ $ source ~/python/venv/bin/activate
 (venv) $ python -c "import tensorflow as tf;print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
 ```
 
-#### pip TLS/SSL Error
+
+#### 가상환경 python 기본으로 설정
+
+하지만 `python3.10`이라는 명령으로 사용해야 하기 때문에 `alias`를 변경하여 `python`으로만 실행이 가능하도록 설정합니다.
+
+현재 가상환경은 `~/python/venv`에 설정이 되어 있습니다.
+
+```
+$ vi ~/.bashrc
+```
+
+가장 아래에 `alias python=""`를 추가합니다.
+
+```
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+
+alias python="$HOME/python/venv/bin/python3.10" # 추가
+```
+
+이제 설정 파일을 적용합니다.
+
+```
+$ source ~/.bashrc
+$ python
+
+Python 3.10.4 (main, Mar 28 2022, 09:47:54) [GCC 8.5.0 20210514 (Red Hat 8.5.0-4)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>import tensorflow
+>>>
+```
+
+#### pip 오프라인 설치
 
 `pip`를 사용 할 때 아래와 같은 에러가 뜰 경우가 있다.
 
