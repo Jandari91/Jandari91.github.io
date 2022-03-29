@@ -1,28 +1,438 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
-        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    {% for post in site.posts %}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
     <url>
-        <loc>{{ site.url }}{{ post.url }}.html</loc>
-        {% if post.lastmod == null %}
-        <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
-        {% else %}
-        <lastmod>{{ post.lastmod | date_to_xmlschema }}</lastmod>
-        {% endif %}
-
-        {% if post.sitemap.changefreq == null %}
-        <changefreq>weekly</changefreq>
-        {% else %}
-        <changefreq>{{ post.sitemap.changefreq }}</changefreq>
-        {% endif %}
-
-        {% if post.sitemap.priority == null %}
-        <priority>0.5</priority>
-        {% else %}
-        <priority>{{ post.sitemap.priority }}</priority>
-        {% endif %}
-
+        <loc>https://jandari91.github.io/posts/fastapi/</loc>
     </url>
-    {% endfor %}
+    
+    <url>
+        <loc>https://jandari91.github.io/posts/Clipboard/</loc>
+    </url>
+    
+    <url>
+        <loc>https://jandari91.github.io/posts/ftp_setup_rhel8/</loc>
+    </url>
+    
+    <url>
+        <loc>https://jandari91.github.io/posts/RHEL_ip_setup/</loc>
+    </url>
+    
+    <url>
+        <loc>https://jandari91.github.io/posts/docker/</loc>
+    </url>
+    
+    <url>
+        <loc>https://jandari91.github.io/posts/tensorflow/</loc>
+    </url>
+    
+    <url>
+        <loc>https://jandari91.github.io/posts/cuda/</loc>
+    </url>
+    
+    <url>
+        <loc>https://jandari91.github.io/posts/ftp/</loc>
+    </url>
+    
+    <url>
+        <loc>https://jandari91.github.io/posts/nvidia/</loc>
+    </url>
+    
+    <url>
+        <loc>https://jandari91.github.io/posts/RHEL/</loc>
+    </url>
+    
+    <url>
+        <loc>https://jandari91.github.io/posts/asus_secure_boot/</loc>
+    </url>
+    
+    <url>
+        <loc>https://jandari91.github.io/posts/Environment/</loc>
+    </url>
+    
+    <url>
+        <loc>https://jandari91.github.io/posts/DDD_Ch2/</loc>
+    </url>
+    
+    <url>
+        <loc>https://jandari91.github.io/posts/DDD_Ch1/</loc>
+    </url>
+    
+    <url>
+        <loc>https://jandari91.github.io/posts/TorchServe/</loc>
+    </url>
+    
+
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/404.html</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/app.js</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/assets/img/favicons/browserconfig.xml</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/feed.xml</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/assets/js/data/search.json</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/assets/img/favicons/site.webmanifest</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/sw.js</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/assets/js/data/swcache.js</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/norobots/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/assets/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/posts/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/tags/pytorch/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/tags/torchserve/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/tags/ddd/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/tags/docker/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/tags/postgres/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/tags/cuda/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/tags/setup/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/tags/rhel/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/tags/linux/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/tags/nvidia-driver/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/tags/ftp/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/tags/python/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/tags/tensorflow/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/tags/docker-compose/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/tags/rhel8/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/tags/net/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/tags/c/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/tags/wpf/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/tags/mvvm/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/tags/fastapi/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/categories/deeplearning/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/categories/pytorch/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/categories/torchserve/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/categories/ddd/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/categories/%EB%8F%84%EB%A9%94%EC%9D%B8-%EC%A3%BC%EB%8F%84-%EC%84%A4%EA%B3%84-%EC%B2%A0%EC%A0%80-%EC%9E%85%EB%AC%B8/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/categories/docker/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/categories/docker-compose/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/categories/infra/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/categories/ftp/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/categories/net/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/categories/wpf/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/categories/fastapi/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://jandari91.github.io/page2/</loc>
+    </url>
+    
+    
+    
 </urlset>
