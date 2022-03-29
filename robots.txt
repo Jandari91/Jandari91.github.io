@@ -2,4 +2,4 @@ User-agent: *
 
 Allow: /
 
-Sitemap: https://www.irgroup.org/sitemap.xml
+Sitemap: https://jandari91.github.io/sitemap.xml
