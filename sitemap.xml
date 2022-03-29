@@ -52,5 +52,3 @@ layout : null
     {% endunless %}
   {% endfor %}
 </urlset>
-© 2022 GitHub, Inc.
-Terms
