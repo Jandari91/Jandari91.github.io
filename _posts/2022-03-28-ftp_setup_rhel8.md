@@ -1,7 +1,7 @@
 ---
 title: RHEL8.5 FTP 설치
 author: Jandari
-date: 2021-03-28 17:21:00 -0500
+date: 2022-03-28 17:21:00 -0500
 categories: [Infra, FTP]
 tags: [FTP, RHEL8]
 math: true

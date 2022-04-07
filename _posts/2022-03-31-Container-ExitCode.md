@@ -1,7 +1,7 @@
 ---
 title: Docker Container Exit Code
 author: Jandari
-date: 2021-03-31 11:15:00 -0500
+date: 2022-03-31 11:15:00 -0500
 categories: [Docker]
 tags: [Docker]
 math: true

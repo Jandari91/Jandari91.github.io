@@ -1,7 +1,7 @@
 ---
 title: FastAPI의 Type hits
 author: Jandari
-date: 2021-03-29 10:00:00 -0500
+date: 2022-03-29 10:00:00 -0500
 categories: [FastAPI]
 tags: [FastAPI, Python]
 math: true

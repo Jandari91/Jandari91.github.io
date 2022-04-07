@@ -1,7 +1,7 @@
 ---
 title: docker-compose 작성 시 환경 변수 지정
 author: Jandari
-date: 2021-03-24 18:46:00 -0500
+date: 2022-03-24 18:46:00 -0500
 categories: [Docker, docker-compose]
 tags: [Docker, Postgres]
 math: true

@@ -1,7 +1,7 @@
 ---
 title: WPF Binding의 RelativeSource 속성 
 author: Jandari
-date: 2021-03-30 08:30:00 -0500
+date: 2022-03-30 08:30:00 -0500
 categories: [.NET, WPF]
 tags: [.NET, C#, WPF, MVVM]
 math: true

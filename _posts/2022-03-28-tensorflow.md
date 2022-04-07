@@ -1,7 +1,7 @@
 ---
 title: RHEL8.5 Python 및 Tensorflow 설치
 author: Jandari
-date: 2021-03-28 10:00:00 -0500
+date: 2022-03-28 10:00:00 -0500
 categories: [DeepLearning]
 tags: [CUDA, Setup, Linux, Python, Tensorflow]
 math: true

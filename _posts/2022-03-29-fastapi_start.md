@@ -1,7 +1,7 @@
 ---
 title: FastAPI 실행하기
 author: Jandari
-date: 2021-03-29 14:00:00 -0500
+date: 2022-03-29 14:00:00 -0500
 categories: [FastAPI]
 tags: [FastAPI, Python]
 math: true

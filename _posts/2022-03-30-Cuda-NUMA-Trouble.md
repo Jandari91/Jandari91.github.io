@@ -1,7 +1,7 @@
 ---
 title: NUMA node read from SysFS had negative value -1
 author: Jandari
-date: 2021-03-30 08:30:00 -0500
+date: 2022-03-30 08:30:00 -0500
 categories: [DeepLearning]
 tags: [CUDA, Setup, Linux, TroubleShooting]
 math: true

@@ -1,7 +1,7 @@
 ---
 title: VS Code에서 Python Type Check 기능 활성화
 author: Jandari
-date: 2021-03-29 11:00:00 -0500
+date: 2022-03-29 11:00:00 -0500
 categories: [VSCode]
 tags: [VSCode, Python]
 math: true

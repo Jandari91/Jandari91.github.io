@@ -1,7 +1,7 @@
 ---
 title: FastAPI Docker 이미지 제작
 author: Jandari
-date: 2021-03-29 15:00:00 -0500
+date: 2022-03-29 15:00:00 -0500
 categories: [FastAPI]
 tags: [FastAPI, Python, Docker]
 math: true

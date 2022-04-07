@@ -1,7 +1,7 @@
 ---
 title: C# Clipboard 및 Serialize
 author: Jandari
-date: 2021-03-28 17:34:00 -0500
+date: 2022-03-28 17:34:00 -0500
 categories: [.NET, WPF]
 tags: [.NET, C#, WPF, MVVM]
 math: true

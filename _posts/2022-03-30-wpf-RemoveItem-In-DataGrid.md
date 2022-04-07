@@ -1,7 +1,7 @@
 ---
 title: DataGrid ColumnItem의 버튼으로 해당 행 삭제
 author: Jandari
-date: 2021-03-30 21:30:00 -0500
+date: 2022-03-30 21:30:00 -0500
 categories: [.NET, WPF]
 tags: [.NET, C#, WPF, MVVM]
 math: true

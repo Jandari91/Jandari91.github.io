@@ -1,7 +1,7 @@
 ---
 title: Could not load dynamic library 'libcudnn.so.8'
 author: Jandari
-date: 2021-03-30 08:50:00 -0500
+date: 2022-03-30 08:50:00 -0500
 categories: [DeepLearning]
 tags: [CUDA, Setup, Linux, TroubleShooting]
 math: true
