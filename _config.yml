@@ -84,7 +84,7 @@ theme_mode: light
 # img_cdn: 'https://raw.githubusercontent.com/cotes2020/chirpy-images/main'
 
 # the avatar on sidebar, support local or CORS resources
-avatar: '/assets/img/favicons/android-chrome-192x192.png'
+avatar: '/assets/img/favicons/android-chrome-192x192.jpg'
 
 # boolean type, the global switch for ToC in posts.
 toc: true
