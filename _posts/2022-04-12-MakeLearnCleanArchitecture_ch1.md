@@ -1,7 +1,7 @@
 ---
 title: 계층형 아키텍처의 문제는 무엇일까?
 author: Jandari
-date: 2022-04-12 22:15:00 -0500
+date: 2022-04-12 22:15:00 +09:00
 categories: [DDD, 만들면서 배우는 클린 아키텍처]
 tags: [DDD, CleanArchitecture]
 math: true
