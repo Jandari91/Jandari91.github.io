@@ -10,9 +10,11 @@ mermaid: true
 
 ## 소개
 
-![image](/assets/img/post/2022-04-12-MakeLearnCleanArchitecture_ch2/1.jpg)
+![image](/assets/img/post/2022-04-13-MakeLearnCleanArchitecture_ch2/1.jpg)
 
 만들면서 배우는 클린 아키텍처 책을 읽고 정리하며 소감을 적는 포스트입니다.
+
+자바로 이뤄어진 코드는 C#으로 변경합니다.
 
 ## 의존성 역전하기
 
@@ -28,7 +30,7 @@ mermaid: true
 
 만약 컴포넌트를 변경할 이유가 한 가지라면 우리가 `어떤 다른 이유로` 소프트웨어를 변경하더라도 이 컴포넌트에 대해서는 전혀 신경 쓸 필요가 없다.
 
-![image](/assets/img/post/2022-04-12-MakeLearnCleanArchitecture_ch2/2.jpg)
+![image](/assets/img/post/2022-04-13-MakeLearnCleanArchitecture_ch2/2.jpg)
 
 > 위 그림에서 점선 화살표는 전이 의존성(transitive dependency)이다.
 
@@ -56,26 +58,26 @@ A는 모든 컴포너트에 의존하기 때문에 다른 어떤 컴포넌트가
 
 도메인 코드와 영속성 코드 간의 의존성을 역전시켜서 영속성 코드가 도메인 코드에 의존하고, 도메인 코드를 `변경할 이유`를 줄여보자
 
-![image](/assets/img/post/2022-04-12-MakeLearnCleanArchitecture_ch2/3.jpg)
+![image](/assets/img/post/2022-04-13-MakeLearnCleanArchitecture_ch2/3.jpg)
 
 위 그림에서 도메인 계층에서 영속성 계층과 상호작용하는 서비스가 하나 있다.
 
 엔티티는 도메인 객체를 표현하고 도메인 코드는 이 엔티티들의 상태를 변경하는 일을 중심으로 하기 때문에 엔티티를 먼저 도메인 계층으로 올린다.
 
-![image](/assets/img/post/2022-04-12-MakeLearnCleanArchitecture_ch2/4.jpg)
+![image](/assets/img/post/2022-04-13-MakeLearnCleanArchitecture_ch2/4.jpg)
 
 여기서 엔티티가 도메인 계층으로 올라갔기 때문에 두 계층 사이에 순환 의존성(Circular dependency)가 생기게 됩니다.
 
 이 부분이 바로 DIP를 적용하는 부분이다. 도메인 계층에 레포지토리에 대한 인터페이스를 만들고, 실제 리포지토리는 영속성 계층에서 구현하게 하는 것이다.
 
-![image](/assets/img/post/2022-04-12-MakeLearnCleanArchitecture_ch2/5.jpg)
+![image](/assets/img/post/2022-04-13-MakeLearnCleanArchitecture_ch2/5.jpg)
 
 
 도메인 계층에 리포지토리 인터페이스를 만들고, 실제 리포지토리는 영속성 계층에서 구현하게 하는 것이다.
 
 ### 클린 아키텍처
 
-![image](/assets/img/post/2022-04-12-MakeLearnCleanArchitecture_ch2/6.jpg)
+![image](/assets/img/post/2022-04-13-MakeLearnCleanArchitecture_ch2/6.jpg)
 
 로버튼 C.마틴은 클린 아키텍처에서는 설계까 비즈니스 규칙의 테스트를 용이하게 하고, 비즈니스 규칙은 프레임웤, 데이터베이스, UI 기술, 그 밖의 외부 애플리케이션이나 인터페이스로부터 독립적일 수 있다고 이야기 했습니다.
 
@@ -91,7 +93,7 @@ A는 모든 컴포너트에 의존하기 때문에 다른 어떤 컴포넌트가
 
 ### 육각형 아키텍처(헥사고날 아키텍처)
 
-![image](/assets/img/post/2022-04-12-MakeLearnCleanArchitecture_ch2/7.jpg)
+![image](/assets/img/post/2022-04-13-MakeLearnCleanArchitecture_ch2/7.jpg)
 
 
 애플리케이션 코어가 육각형으로 표현되어 이 아키텍처의 이름이 되었지만 육각형이나 팔각형이나 무엇이들 상관 없다.
