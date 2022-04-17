@@ -10,7 +10,7 @@ mermaid: true
 
 ## 소개
 
-![image](/assets/img/post/2022-04-14-MakeLearnCleanArchitecture_ch4/1.jpg)
+![image](/assets/img/post/2022-04-17-MakeLearnCleanArchitecture_ch4/1.jpg)
 
 만들면서 배우는 클린 아키텍처 책을 읽고 정리하며 소감을 적는 포스트입니다.
 
@@ -161,7 +161,7 @@ public class SendMoneyService implements SendMoneyUseCase {
 }
 ```
 
-![image](/assets/img/post/2022-04-14-MakeLearnCleanArchitecture_ch4/2.jpg)
+![image](/assets/img/post/2022-04-17-MakeLearnCleanArchitecture_ch4/2.jpg)
 
 서비스는 인커밍 포트 인터페이스인 `SendMoneyUseCase`를 구현하고, 계좌를 불러오기 위해 아웃고잉 포트 인터페이스인 `LoadAccountPort`를 호출한다.
 
