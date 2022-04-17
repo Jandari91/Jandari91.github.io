@@ -14,8 +14,6 @@ mermaid: true
 
 만들면서 배우는 클린 아키텍처 책을 읽고 정리하며 소감을 적는 포스트입니다.
 
-자바로 이뤄어진 코드는 C#으로 변경합니다.
-
 ## 의존성 역전하기
 
 ### 단일 책임 원칙(SRP, Single Responsibility Principle)
