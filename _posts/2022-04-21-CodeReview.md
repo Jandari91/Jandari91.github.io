@@ -10,7 +10,7 @@ mermaid: true
 
 ## 소개
 
-이번 포스트는 `[한번 듣고 평생 써먹는 코드 리뷰 노하우](https://www.youtube.com/watch?v=TAPviNhFuSg)`를 시청하고 정리하는 포스트입니다.
+이번 포스트는 [`한번 듣고 평생 써먹는 코드 리뷰 노하우`](https://www.youtube.com/watch?v=TAPviNhFuSg)를 시청하고 정리하는 포스트입니다.
 
 # 목차
 
