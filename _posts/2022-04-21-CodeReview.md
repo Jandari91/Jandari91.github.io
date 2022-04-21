@@ -28,7 +28,7 @@ mermaid: true
   * 추가적인 사례
   * 코드 리뷰를 하는 아주 재밌는 방법
 
-#왜 코드 리뷰를 해야하나?
+# 왜 코드 리뷰를 해야하나?
 
 ## 우리가 살고 있는 시대
 > `"Software is eating the world"` <br />
