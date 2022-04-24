@@ -1,5 +1,5 @@
 ---
-title: 코드 구성하기
+title: 3장. 코드 구성하기
 author: Jandari
 date: 2022-04-14 22:20:00 +09:00
 categories: [DDD, 만들면서 배우는 클린 아키텍처]
@@ -39,6 +39,8 @@ buckpal
 └─────── web
           └──── AccountController
 ```
+> 계층으로 코드를 구성하면 기능적인 측면들이 섞이기 쉽다.
+
 
 웹 계층(web), 도메인 계층(domain), 영속성 계층(persistence)로 구분하였습니다.
 
@@ -77,6 +79,7 @@ buckpal
           ├──── AccountRepository
           └──── SendMoneyService
 ```
+> 기능을 기준으로 코드를 구성하면 기반 아키텍처가 명확하게 보이지 않는다.
 
 가장 본질적인 변경은 계좌와 관련된 모든 코드를 최상위의 account 패키지에 넣었다는 점이다 계층 패키지들도 없앴다.
 
@@ -116,9 +119,9 @@ buckpal
                         │     └──── SendMoneyUseCase
                         └──── out
                               ├──── LoadAccountPort
-                              └──── UpdateAccountStatePort
-                        
+                              └──── UpdateAccountStatePort                  
 ```
+> 아키텍처적으로 표현력 있는 패키지 구조에서는 각 아키텍처 요소들에 정해진 위치가 있다.
 
 구조의 각 요소들은 패키지 하나씩에 직접 매핑된다.
 
@@ -157,6 +160,7 @@ adpater 패키지의 모든 클래스는 application 패키지 내의 포트 인
 이 컴포넌트는 아키텍처를 구성하는 대부분의 클래스를 초기화하는 역할을 한다.
 
 ![image](/assets/img/post/2022-04-14-MakeLearnCleanArchitecture_ch3/2.jpg)
+> 웹 컨트롤러가 서비스에 의해 구현된 인커밍 포트를 호출한다. 서비스는 어댑터에 의해 구현된 아웃고잉 포트를 호출한다.
 
 위 그림에서 중립적인 의존성 주입 컴포넌트는 AccountController, SendMoneyService, AccountPersistenceAdapter 클래스의 인스턴스를 만들어 주입하게 된다.
 

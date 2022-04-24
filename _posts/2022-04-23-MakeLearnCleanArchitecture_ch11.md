@@ -1,5 +1,5 @@
 ---
-title: 의식적으로 지름길 사용하기
+title: 11장. 의식적으로 지름길 사용하기
 author: Jandari
 date: 2022-04-23 13:00:00 +09:00
 categories: [DDD, 만들면서 배우는 클린 아키텍처]

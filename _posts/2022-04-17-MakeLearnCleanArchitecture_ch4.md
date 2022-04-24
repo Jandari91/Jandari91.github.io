@@ -1,5 +1,5 @@
 ---
-title: 유스케이스 구현하기
+title: 4장. 유스케이스 구현하기
 author: Jandari
 date: 2022-04-17 22:20:00 +09:00
 categories: [DDD, 만들면서 배우는 클린 아키텍처]
@@ -162,6 +162,7 @@ public class SendMoneyService implements SendMoneyUseCase {
 ```
 
 ![image](/assets/img/post/2022-04-17-MakeLearnCleanArchitecture_ch4/2.jpg)
+> 하나의 서비스가 하나의 유스케이스를 구현하고, 도메인 모델을 변경하고, 변경된 상태를 저장하기 위해 아웃고잉 포트를 호출한다.
 
 서비스는 인커밍 포트 인터페이스인 `SendMoneyUseCase`를 구현하고, 계좌를 불러오기 위해 아웃고잉 포트 인터페이스인 `LoadAccountPort`를 호출한다.
 

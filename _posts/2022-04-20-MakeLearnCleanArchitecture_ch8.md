@@ -1,5 +1,5 @@
 ---
-title: 경계 간 매핑하기
+title: 8장. 경계 간 매핑하기
 author: Jandari
 date: 2022-04-20 23:50:00 +09:00
 categories: [DDD, 만들면서 배우는 클린 아키텍처]

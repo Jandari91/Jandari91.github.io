@@ -1,5 +1,5 @@
 ---
-title: 애플리케이션 조립하기
+title: 9장. 애플리케이션 조립하기
 author: Jandari
 date: 2022-04-23 10:50:00 +09:00
 categories: [DDD, 만들면서 배우는 클린 아키텍처]

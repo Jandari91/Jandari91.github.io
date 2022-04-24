@@ -1,5 +1,5 @@
 ---
-title: 아키텍처 스타일 결정하기
+title: 12장. 아키텍처 스타일 결정하기
 author: Jandari
 date: 2022-04-24 15:00:00 +09:00
 categories: [DDD, 만들면서 배우는 클린 아키텍처]

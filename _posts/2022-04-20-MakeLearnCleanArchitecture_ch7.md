@@ -1,5 +1,5 @@
 ---
-title: 아키텍처 요소 테스트하기
+title: 7장. 아키텍처 요소 테스트하기
 author: Jandari
 date: 2022-04-20 23:20:00 +09:00
 categories: [DDD, 만들면서 배우는 클린 아키텍처]
