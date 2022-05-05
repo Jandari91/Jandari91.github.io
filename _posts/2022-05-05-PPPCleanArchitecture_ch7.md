@@ -1,5 +1,5 @@
 ---
-title: 7장. SRP: 단일 책임 원칙
+title: 7장. SRP, 단일 책임 원칙
 author: Jandari
 date: 2022-05-05 20:30:00 +09:00
 categories: [DDD, 클린 아키텍처 소프트웨어 구조와 설계의 원칙]
