@@ -1,7 +1,7 @@
 ---
 title: 11장. DIP, 의존성 역전 원칙
 author: Jandari
-date: 2022-05-085 13:30:00 +09:00
+date: 2022-05-08 13:30:00 +09:00
 categories: [DDD, 클린 아키텍처 소프트웨어 구조와 설계의 원칙, 3부 설계 원칙]
 tags: [DDD, CleanArchitecture]
 math: true

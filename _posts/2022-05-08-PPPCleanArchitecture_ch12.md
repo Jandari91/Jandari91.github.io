@@ -1,7 +1,7 @@
 ---
 title: 12장. 컴포넌트 원칙
 author: Jandari
-date: 2022-05-085 14:00:00 +09:00
+date: 2022-05-08 14:00:00 +09:00
 categories: [DDD, 클린 아키텍처 소프트웨어 구조와 설계의 원칙, 4부 컴포넌트 원칙]
 tags: [DDD, CleanArchitecture]
 math: true
