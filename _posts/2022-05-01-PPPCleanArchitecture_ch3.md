@@ -2,7 +2,7 @@
 title: 3장. 패러다임 개요
 author: Jandari
 date: 2022-05-01 21:30:00 +09:00
-categories: [DDD, 클린 아키텍처 소프트웨어 구조와 설계의 원칙]
+categories: [DDD, 클린 아키텍처 소프트웨어 구조와 설계의 원칙, 2부 벽돌부터시작하기:프로그래밍 패러다임]
 tags: [DDD, CleanArchitecture]
 math: true
 mermaid: true

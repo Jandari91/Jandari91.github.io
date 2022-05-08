@@ -2,7 +2,7 @@
 title: 2장. 두 가지 가치에 대한 이야기
 author: Jandari
 date: 2022-04-27 22:30:00 +09:00
-categories: [DDD, 클린 아키텍처 소프트웨어 구조와 설계의 원칙]
+categories: [DDD, 클린 아키텍처 소프트웨어 구조와 설계의 원칙, 1부 소개]
 tags: [DDD, CleanArchitecture]
 math: true
 mermaid: true
