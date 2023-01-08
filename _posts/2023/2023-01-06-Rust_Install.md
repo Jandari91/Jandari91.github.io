@@ -181,19 +181,19 @@ bak:~$ code hello_world
 
 VS Code를 실행시키면 아래와 같이 `src` 디렉터리에 `main.rs` 파일이 있는 것을 볼 수 있습니다.
 
-![image](/assets/img/post/2023-12-06-Rust_Install/1.jpg)
+![image](/assets/img/post/2023-01-06-Rust_Install/1.jpg)
 
 ### 디버깅
 
 2번째 라인에 Break Point가 찍히는 것을 볼 수 있습니다.
 
-![image](/assets/img/post/2023-12-06-Rust_Install/2.jpg)
+![image](/assets/img/post/2023-01-06-Rust_Install/2.jpg)
 
 여기서 F5를 누르면 launch.json이 셋팅되지 않았다고 하며, 파일을 생성합니다.
 
-![image](/assets/img/post/2023-12-06-Rust_Install/3.jpg)
+![image](/assets/img/post/2023-01-06-Rust_Install/3.jpg)
 
-![image](/assets/img/post/2023-12-06-Rust_Install/4.jpg)
+![image](/assets/img/post/2023-01-06-Rust_Install/4.jpg)
 
 `중요한 것을 지금 launch.json을 만들어도 F5로는 디버깅이 되지 않습니다.`
 
