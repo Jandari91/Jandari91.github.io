@@ -1,0 +1,385 @@
+<!DOCTYPE html><html lang="ko" data-mode="light" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="generator" content="Jekyll v4.3.1" /><meta property="og:title" content="7장. 아키텍처 요소 테스트하기" /><meta name="author" content="Jandari" /><meta property="og:locale" content="ko" /><meta name="description" content="소개" /><meta property="og:description" content="소개" /><link rel="canonical" href="https://jandari91.github.io/posts/MakeLearnCleanArchitecture_ch7/" /><meta property="og:url" content="https://jandari91.github.io/posts/MakeLearnCleanArchitecture_ch7/" /><meta property="og:site_name" content="잔다리 블로그" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2022-04-20T23:20:00+09:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="7장. 아키텍처 요소 테스트하기" /><meta name="twitter:site" content="@twitter_username" /><meta name="twitter:creator" content="@Jandari" /><meta name="google-site-verification" content="da_LBuBJEqXgeCF1kMfTTgAPN1j1AqAZOSfvbZ512vw" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jandari"},"dateModified":"2022-04-20T23:20:00+09:00","datePublished":"2022-04-20T23:20:00+09:00","description":"소개","headline":"7장. 아키텍처 요소 테스트하기","mainEntityOfPage":{"@type":"WebPage","@id":"https://jandari91.github.io/posts/MakeLearnCleanArchitecture_ch7/"},"url":"https://jandari91.github.io/posts/MakeLearnCleanArchitecture_ch7/"}</script><title>7장. 아키텍처 요소 테스트하기 | 잔다리 블로그</title><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.jpg"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.jpg"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.jpg"><link rel="manifest" href="/assets/img/favicons/site.webmanifest"><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico"><meta name="apple-mobile-web-app-title" content="잔다리 블로그"><meta name="application-name" content="잔다리 블로그"><meta name="msapplication-TileColor" content="#da532c"><meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.googleapis.com" ><link rel="dns-prefetch" href="https://fonts.googleapis.com" ><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="dns-prefetch" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com" ><link rel="dns-prefetch" href="https://fonts.googleapis.com" ><link rel="preconnect" href="https://cdn.jsdelivr.net" ><link rel="dns-prefetch" href="https://cdn.jsdelivr.net" ><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css"><link rel="stylesheet" href="/assets/css/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1/dist/magnific-popup.min.css"> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script><body data-spy="scroll" data-target="#toc" data-topbar-visible="true"><div id="sidebar" class="d-flex flex-column align-items-end"><div class="profile-wrapper text-center"><div id="avatar"> <a href="/" alt="avatar" class="mx-auto"> <img src=" /assets/img/favicons/android-chrome-192x192.jpg " alt="avatar" onerror="this.style.display='none'"> </a></div><div class="site-title mt-3"> <a href="/">잔다리 블로그</a></div><div class="site-subtitle font-italic">이것저것 기술 블로그 입니다.</div></div><ul class="w-100"><li class="nav-item"> <a href="/" class="nav-link"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item"> <a href="/categories/" class="nav-link"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item"> <a href="/tags/" class="nav-link"> <i class="fa-fw fas fa-tag ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item"> <a href="/archives/" class="nav-link"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item"> <a href="/about/" class="nav-link"> <i class="fa-fw fas fa-info-circle ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul><div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center align-items-center"> <a href="https://github.com/Jandari91" aria-label="github" target="_blank" rel="noopener"> <i class="fab fa-github"></i> </a> <a href=" javascript:location.href = 'mailto:' + ['jandari910201','gmail.com'].join('@')" aria-label="email" > <i class="fas fa-envelope"></i> </a> <a href="/feed.xml" aria-label="rss" > <i class="fas fa-rss"></i> </a></div></div><div id="topbar-wrapper" class="row justify-content-center"><div id="topbar" class="col-11 d-flex h-100 align-items-center justify-content-between"> <span id="breadcrumb"> <span> <a href="/"> Home </a> </span> <span>7장. 아키텍처 요소 테스트하기</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" autocomplete="off" placeholder="Search..."> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper"><div id="main"><div class="row"><div id="core-wrapper" class="col-12 col-lg-11 col-xl-8"><div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><h1 data-toc-skip>7장. 아키텍처 요소 테스트하기</h1><div class="post-meta text-muted"><div> By <em> Jandari </em></div><div class="d-flex"><div> <span> Posted <em class="timeago" data-ts="1650464400" data-toggle="tooltip" data-placement="bottom" data-tooltip-df="llll" > 2022-04-20 </em> </span> <span class="readtime" data-toggle="tooltip" data-placement="bottom" title="2749 words"> <em>15 min</em> read</span></div></div></div><div class="post-content"><h2 id="소개"><span class="mr-2">소개</span><a href="#소개" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2><p><img data-src="/assets/img/post/2022-04-20-MakeLearnCleanArchitecture_ch7/1.jpg" alt="image" data-proofer-ignore></p><p>만들면서 배우는 클린 아키텍처 책을 읽고 정리하며 소감을 적는 포스트입니다.</p><h2 id="아키텍처-요소-테스트하기"><span class="mr-2">아키텍처 요소 테스트하기</span><a href="#아키텍처-요소-테스트하기" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2><p>많은 프로젝트의 자동화된 테스트는 규칙에 따라 작성되지만 테스트 전략을 물었을 때 제대로 답변하는 이가 없었다.</p><p>이번 포스트에서는 육각형 아키텍처에서의 테스트 전략에 대해 이야기 합니다.</p><h3 id="테스트-피라미드"><span class="mr-2">테스트 피라미드</span><a href="#테스트-피라미드" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><p><img data-src="/assets/img/post/2022-04-20-MakeLearnCleanArchitecture_ch7/2.jpg" alt="image" data-proofer-ignore></p><blockquote><p>테스트 피라미드에 따르면 비용이 많이 드는 테스트는 지양하고 비용이 적게 드는 테스트를 많이 만들어야 한다.</p></blockquote><p>기본 전제는 만드는 비용이 적고, 유지보수하기 쉽고, 빨리 실행되고, 안정적인 작은 크기의 테스트들에 대해 높은 커버리지를 유지해야 한다.</p><p>단위와 단위를 넘는 경계, 아키텍처의 경계, 시스템의 경계를 결합하는 테스트는 만드는 비용이 더 비싸지고, 실행이 더 느려지며 깨지기 쉬워진다.</p><p>단위 테스트는 피라미드의 토대에 해당한다. 일반적으로 하나의 클래스를 인스턴스화하고 해당 클래스의 인터페이스를 통해 기능들을 테스트 한다. 만약 테스트 중인 클래스가 다른 클래스에 의존한다면 의존되는 클래스들은 인스턴스화 하지 않고 테스트하는 동안 필요한 작업들을 흉내 내는 목(mock)으로 대체한다.</p><p>통합테스트는 연결된 여러 유닛을 인스턴스화하고 시작점이 되는 클래스의 인터페이스로 데이터를 보낸 후 유닛들의 네트워크가 기대한 대로 잘 동작하는지 검증한다.</p><p>두 계층 간의 경계를 걸쳐서 테스트 할 수 있기 때문에 객체 네트워크가 완전하지 않거나 어떤 시점에는 목을 대상으로 수행해야 한다.</p><p>시스템 테스트는 애플리케이션을 구성하는 모든 객체 네트워크를 가동시켜 특정 유스케이스가 전 계층에서 잘 동작하는지 검증한다.</p><h3 id="단위-테스트로-도메인-엔티티-테스트하기"><span class="mr-2">단위 테스트로 도메인 엔티티 테스트하기</span><a href="#단위-테스트로-도메인-엔티티-테스트하기" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><p>Account 엔티티를 테스트하기 위해 상태틑 과거 특정 시점의 계좌 잔고(baselineBalance)와 그 이후의 입출금 내역(activity)으로 구성돼 있다.</p><p><a href="https://github.com/wikibook/clean-architecture/blob/main/src/test/java/io/reflectoring/buckpal/account/application/domain/AccountTest.java#L31">github code</a></p><div class="language-java highlighter-rouge"><div class="code-header"> <span data-label-text="Java"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">AccountTest</span><span class="o">{</span>
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">withdrawalSucceeds</span><span class="o">(){</span>
+        <span class="nc">AccountId</span> <span class="n">accountId</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AccountId</span><span class="o">(</span><span class="mi">1L</span><span class="o">);</span>
+        <span class="nc">Account</span> <span class="n">account</span> <span class="o">=</span> <span class="n">defaultAccount</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">withAccountId</span><span class="o">(</span><span class="n">accountId</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">withBaselineBalance</span><span class="o">(</span><span class="nc">Money</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">555L</span><span class="o">))</span>
+            <span class="o">.</span><span class="na">withActivityWindow</span><span class="o">(</span><span class="k">new</span> <span class="nc">ActivityWindow</span><span class="o">(</span>
+                <span class="n">defaultActivity</span><span class="o">()</span>
+                    <span class="o">.</span><span class="na">withTargetAccount</span><span class="o">(</span><span class="n">accountId</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">withMoney</span><span class="o">(</span><span class="nc">Money</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">999L</span><span class="o">)).</span><span class="na">build</span><span class="o">(),</span>
+                <span class="n">defaultActivity</span><span class="o">()</span>
+                    <span class="o">.</span><span class="na">withTargetAccount</span><span class="o">(</span><span class="n">accountId</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">withMoney</span><span class="o">(</span><span class="nc">Money</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1L</span><span class="o">)).</span><span class="na">build</span><span class="o">()))</span>
+            <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+
+        <span class="kt">boolean</span> <span class="n">success</span> <span class="o">=</span> <span class="n">account</span><span class="o">.</span><span class="na">withdraw</span><span class="o">(</span><span class="nc">Money</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">555L</span><span class="o">),</span> <span class="k">new</span> <span class="nc">AccountId</span><span class="o">(</span><span class="mi">99L</span><span class="o">));</span>
+
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">success</span><span class="o">).</span><span class="na">isTrue</span><span class="o">();</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">account</span><span class="o">.</span><span class="na">getActivityWindow</span><span class="o">().</span><span class="na">getActivities</span><span class="o">()).</span><span class="na">hasSize</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">account</span><span class="o">.</span><span class="na">calculateBalance</span><span class="o">()).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="nc">Money</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1000L</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></table></code></div></div><p>특정 상태의 Account를 인스턴스화하고 withdraw()메서드를 호출해서 출금이 성공했는지 검증하고, Account 객체의 상태에 대해 기대되는 부수효과들이 잘 일어났는지 확인하는 단순한 단위 테스트다.</p><p>단위 테스트는 이해하기 쉽고, 아주 빠르게 실행된다. 또한 도메인 엔티티에 녹아 있는 비즈니스 규칙을 검증하기에 가장 적절한 방법이다.</p><h3 id="단위-테스트로-유스케이스-테스트-하기"><span class="mr-2">단위 테스트로 유스케이스 테스트 하기</span><a href="#단위-테스트로-유스케이스-테스트-하기" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><p>계층의 바깥쪽으로 나가서, 다음으로 테스트 할 것이 아키텍처의 유스ㅔ이스다.</p><p><code class="language-plaintext highlighter-rouge">SendMoneyService</code>의 테스트를 살펴보면, SenMoney 유스케이스는 출금 계좌의 잔고가 다른 트랜잭션에 의해 변경되지 않도록 락(lock)을 건다. 출금 계좌에서 돈이 출금되고 나면 똑같이 입금 계좌에 락을 걸고 돈을 입금시킨다.</p><p><a href="https://github.com/wikibook/clean-architecture/blob/main/src/test/java/io/reflectoring/buckpal/account/application/service/SendMoneyServiceTest.java#L63">github code</a></p><div class="language-java highlighter-rouge"><div class="code-header"> <span data-label-text="Java"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+</pre><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">SendMoneyServiceTest</span><span class="o">{</span>
+    <span class="c1">// 필드 선언은 생략</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">transactionSucceeds</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">Account</span> <span class="n">sourceAccount</span> <span class="o">=</span> <span class="n">givenSourceAccount</span><span class="o">();</span>
+        <span class="nc">Account</span> <span class="n">targetAccount</span> <span class="o">=</span> <span class="n">givenTargetAccount</span><span class="o">();</span>
+
+        <span class="n">givenWithdrawalWillSucceed</span><span class="o">(</span><span class="n">sourceAccount</span><span class="o">);</span>
+        <span class="n">givenDepositWillSucceed</span><span class="o">(</span><span class="n">targetAccount</span><span class="o">);</span>
+
+        <span class="nc">Money</span> <span class="n">money</span> <span class="o">=</span> <span class="nc">Money</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">500L</span><span class="o">);</span>
+
+        <span class="nc">SendMoneyCommand</span> <span class="n">command</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SendMoneyCommand</span><span class="o">(</span>
+            <span class="n">sourceAccount</span><span class="o">.</span><span class="na">getId</span><span class="o">(),</span>
+            <span class="n">targetAccount</span><span class="o">.</span><span class="na">getId</span><span class="o">(),</span>
+            <span class="n">money</span><span class="o">);</span>
+
+        <span class="kt">boolean</span> <span class="n">success</span> <span class="o">=</span> <span class="n">sendMoneyService</span><span class="o">.</span><span class="na">sendMoney</span><span class="o">(</span><span class="n">command</span><span class="o">);</span>
+
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">success</span><span class="o">).</span><span class="na">isTrue</span><span class="o">();</span>
+
+        <span class="nc">AccountId</span> <span class="n">sourceAccountId</span> <span class="o">=</span> <span class="n">sourceAccount</span><span class="o">.</span><span class="na">getId</span><span class="o">();</span>
+        <span class="nc">AccountId</span> <span class="n">targetAccountId</span> <span class="o">=</span> <span class="n">targetAccount</span><span class="o">.</span><span class="na">getId</span><span class="o">();</span>
+
+        <span class="n">then</span><span class="o">(</span><span class="n">accountLock</span><span class="o">).</span><span class="na">should</span><span class="o">().</span><span class="na">lockAccount</span><span class="o">(</span><span class="n">eq</span><span class="o">(</span><span class="n">sourceAccountId</span><span class="o">));</span>
+        <span class="n">then</span><span class="o">(</span><span class="n">targetAccount</span><span class="o">).</span><span class="na">should</span><span class="o">().</span><span class="na">withdraw</span><span class="o">(</span><span class="n">eq</span><span class="o">(</span><span class="n">money</span><span class="o">),</span> <span class="n">eq</span><span class="o">(</span><span class="n">targetAccountId</span><span class="o">));</span>
+        <span class="n">then</span><span class="o">(</span><span class="n">accountLock</span><span class="o">).</span><span class="na">should</span><span class="o">().</span><span class="na">releaseAccount</span><span class="o">(</span><span class="n">eq</span><span class="o">(</span><span class="n">sourceAccountId</span><span class="o">));</span>
+
+        <span class="n">then</span><span class="o">(</span><span class="n">accountLock</span><span class="o">).</span><span class="na">should</span><span class="o">().</span><span class="na">lockAccount</span><span class="o">(</span><span class="n">eq</span><span class="o">(</span><span class="n">targetAccountId</span><span class="o">));</span>
+        <span class="n">then</span><span class="o">(</span><span class="n">targetAccount</span><span class="o">).</span><span class="na">should</span><span class="o">().</span><span class="na">deposit</span><span class="o">(</span><span class="n">eq</span><span class="o">(</span><span class="n">money</span><span class="o">),</span> <span class="n">eq</span><span class="o">(</span><span class="n">sourceAccountId</span><span class="o">));</span>
+        <span class="n">then</span><span class="o">(</span><span class="n">accountLock</span><span class="o">).</span><span class="na">should</span><span class="o">().</span><span class="na">releaseAccount</span><span class="o">(</span><span class="n">eq</span><span class="o">(</span><span class="n">targetAccountId</span><span class="o">));</span>
+
+        <span class="n">thenAccountsHaveBeenUpdated</span><span class="o">(</span><span class="n">sourceAccountId</span><span class="o">,</span> <span class="n">targetAccountId</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">// 헬퍼 메서드 생략</span>
+<span class="o">}</span>
+
+</pre></table></code></div></div><p>테스트의 가독성을 높이기 위해 행동-주도 개발(behavior driven development)에서 일반적으로 사용하는 방식대로 given/when/then 섹셩으로 나눳다.</p><p><code class="language-plaintext highlighter-rouge">given</code> 섹션에서는 출금 및 입금 Account의 인스턴스를 각각 생성하고 적절한 상태로 만들고 SendMoneyCommand 인스턴스도 만들어서 유스케이스의 입력으로 사용한다.</p><p><code class="language-plaintext highlighter-rouge">when</code> 섹션에서는 유스케이스를 실행하기 위해 sendMoeny() 메서드를 호출한다.</p><p><code class="language-plaintext highlighter-rouge">then</code> 섹션에서는 트랜잭션이 성공적이었는지 확인하고, 출금 및 입금 Account, 그리고 계좌에 락을 걸고 해제하는 책임을 가진 AccountLock에 대해 특정 메서드가 호출됐는지 검증한다.</p><p>서비스가 (모팅된) 의존 대상의 특정 메서드와 상호작용햇는지 여부를 검증하면, 테스트가 코드의 <code class="language-plaintext highlighter-rouge">행동</code> 변경 뿐만 아니라 코드의 <code class="language-plaintext highlighter-rouge">구조</code> 변경에도 취약해진다.</p><p>그렇기 때문에 테스트에서 어떤 상호작용을 검증하고 싶은지 신중하게 생각해야 한다.</p><h3 id="통합-테스트로-웹-어댑터-테스트하기"><span class="mr-2">통합 테스트로 웹 어댑터 테스트하기</span><a href="#통합-테스트로-웹-어댑터-테스트하기" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><p>한 계층 더 바깥으로 나가면 어댑터에 도착한다. 웹 어댑터를 테스트 한다.</p><p><a href="https://github.com/wikibook/clean-architecture/blob/main/src/test/java/io/reflectoring/buckpal/account/adapter/in/web/SendMoneyControllerTest.java">github code</a></p><div class="language-java highlighter-rouge"><div class="code-header"> <span data-label-text="Java"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre><td class="rouge-code"><pre><span class="nd">@WebMvcTest</span><span class="o">(</span><span class="n">controllers</span> <span class="o">=</span> <span class="nc">SendMoneyController</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">class</span> <span class="nc">SendMoneyControllerTest</span> <span class="o">{</span>
+
+	<span class="nd">@Autowired</span>
+	<span class="kd">private</span> <span class="nc">MockMvc</span> <span class="n">mockMvc</span><span class="o">;</span>
+
+	<span class="nd">@MockBean</span>
+	<span class="kd">private</span> <span class="nc">SendMoneyUseCase</span> <span class="n">sendMoneyUseCase</span><span class="o">;</span>
+
+	<span class="nd">@Test</span>
+	<span class="kt">void</span> <span class="nf">testSendMoney</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+
+		<span class="n">mockMvc</span><span class="o">.</span><span class="na">perform</span><span class="o">(</span><span class="n">post</span><span class="o">(</span><span class="s">"/accounts/send/{sourceAccountId}/{targetAccountId}/{amount}"</span><span class="o">,</span>
+				<span class="mi">41L</span><span class="o">,</span> <span class="mi">42L</span><span class="o">,</span> <span class="mi">500</span><span class="o">)</span>
+				<span class="o">.</span><span class="na">header</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">))</span>
+				<span class="o">.</span><span class="na">andExpect</span><span class="o">(</span><span class="n">status</span><span class="o">().</span><span class="na">isOk</span><span class="o">());</span>
+
+		<span class="n">then</span><span class="o">(</span><span class="n">sendMoneyUseCase</span><span class="o">).</span><span class="na">should</span><span class="o">()</span>
+				<span class="o">.</span><span class="na">sendMoney</span><span class="o">(</span><span class="n">eq</span><span class="o">(</span><span class="k">new</span> <span class="nc">SendMoneyCommand</span><span class="o">(</span>
+						<span class="k">new</span> <span class="nf">AccountId</span><span class="o">(</span><span class="mi">41L</span><span class="o">),</span>
+						<span class="k">new</span> <span class="nf">AccountId</span><span class="o">(</span><span class="mi">42L</span><span class="o">),</span>
+						<span class="nc">Money</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">500L</span><span class="o">))));</span>
+	<span class="o">}</span>
+
+<span class="o">}</span>
+</pre></table></code></div></div><p>MockMvc 객체를 이용해 모킹했기 때문에 실제로 HTTP 프로토콜을 통해 테스트 한 것은 아니다. 프레임워크가 HTTP 프로토콜에 맞게 모든 것을 적절히 잘 변환한다고 믿는 것이다.</p><p>이 테스트는 왜 단위 테스트가 아니라 통합 테스트 인가?? 이 테스트에서는 하나의 웹 컨트롤러 클래스만 테스트 한 것처럼 보이지만, 사실 보이지 않는 곳에서 다 많은 일들이 벌어지고 있다.</p><p>웹 컨트롤럴가 스프링 프레임워크에 강하게 묶여 있기 때문에 격리된 상태로 테스트하기 보다는 이 프레임워크와 통합된 상태로 테스트 하는 것이 합리적이다.</p><h3 id="통합-테스트로-영속성-어댑터-테스트하기"><span class="mr-2">통합 테스트로 영속성 어댑터 테스트하기</span><a href="#통합-테스트로-영속성-어댑터-테스트하기" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><p>영속성 어댑터의 테스트는 단위 테스트보다는 통합 테스트를 적용하는 것이 합리적이다.</p><p><a href="https://github.com/wikibook/clean-architecture/blob/main/src/test/java/io/reflectoring/buckpal/account/adapter/out/persistence/AccountPersistenceAdapterTest.java">github code</a></p><div class="language-java highlighter-rouge"><div class="code-header"> <span data-label-text="Java"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+</pre><td class="rouge-code"><pre><span class="nd">@DataJpaTest</span>
+<span class="nd">@Import</span><span class="o">({</span><span class="nc">AccountPersistenceAdapter</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">AccountMapper</span><span class="o">.</span><span class="na">class</span><span class="o">})</span>
+<span class="kd">class</span> <span class="nc">AccountPersistenceAdapterTest</span> <span class="o">{</span>
+
+	<span class="nd">@Autowired</span>
+	<span class="kd">private</span> <span class="nc">AccountPersistenceAdapter</span> <span class="n">adapterUnderTest</span><span class="o">;</span>
+
+	<span class="nd">@Autowired</span>
+	<span class="kd">private</span> <span class="nc">ActivityRepository</span> <span class="n">activityRepository</span><span class="o">;</span>
+
+	<span class="nd">@Test</span>
+	<span class="nd">@Sql</span><span class="o">(</span><span class="s">"AccountPersistenceAdapterTest.sql"</span><span class="o">)</span>
+	<span class="kt">void</span> <span class="nf">loadsAccount</span><span class="o">()</span> <span class="o">{</span>
+		<span class="nc">Account</span> <span class="n">account</span> <span class="o">=</span> <span class="n">adapterUnderTest</span><span class="o">.</span><span class="na">loadAccount</span><span class="o">(</span><span class="k">new</span> <span class="nc">AccountId</span><span class="o">(</span><span class="mi">1L</span><span class="o">),</span> <span class="nc">LocalDateTime</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">2018</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">));</span>
+
+		<span class="n">assertThat</span><span class="o">(</span><span class="n">account</span><span class="o">.</span><span class="na">getActivityWindow</span><span class="o">().</span><span class="na">getActivities</span><span class="o">()).</span><span class="na">hasSize</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+		<span class="n">assertThat</span><span class="o">(</span><span class="n">account</span><span class="o">.</span><span class="na">calculateBalance</span><span class="o">()).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="nc">Money</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">500</span><span class="o">));</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Test</span>
+	<span class="kt">void</span> <span class="nf">updatesActivities</span><span class="o">()</span> <span class="o">{</span>
+		<span class="nc">Account</span> <span class="n">account</span> <span class="o">=</span> <span class="n">defaultAccount</span><span class="o">()</span>
+				<span class="o">.</span><span class="na">withBaselineBalance</span><span class="o">(</span><span class="nc">Money</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">555L</span><span class="o">))</span>
+				<span class="o">.</span><span class="na">withActivityWindow</span><span class="o">(</span><span class="k">new</span> <span class="nc">ActivityWindow</span><span class="o">(</span>
+						<span class="n">defaultActivity</span><span class="o">()</span>
+								<span class="o">.</span><span class="na">withId</span><span class="o">(</span><span class="kc">null</span><span class="o">)</span>
+								<span class="o">.</span><span class="na">withMoney</span><span class="o">(</span><span class="nc">Money</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1L</span><span class="o">)).</span><span class="na">build</span><span class="o">()))</span>
+				<span class="o">.</span><span class="na">build</span><span class="o">();</span>
+
+		<span class="n">adapterUnderTest</span><span class="o">.</span><span class="na">updateActivities</span><span class="o">(</span><span class="n">account</span><span class="o">);</span>
+
+		<span class="n">assertThat</span><span class="o">(</span><span class="n">activityRepository</span><span class="o">.</span><span class="na">count</span><span class="o">()).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+
+		<span class="nc">ActivityJpaEntity</span> <span class="n">savedActivity</span> <span class="o">=</span> <span class="n">activityRepository</span><span class="o">.</span><span class="na">findAll</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+		<span class="n">assertThat</span><span class="o">(</span><span class="n">savedActivity</span><span class="o">.</span><span class="na">getAmount</span><span class="o">()).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="mi">1L</span><span class="o">);</span>
+	<span class="o">}</span>
+
+<span class="o">}</span>
+</pre></table></code></div></div><p>이 테스트는 데이터베이스를 모킹하지 않았다는 점이 중요하다. 테스트가 실제로 데이터베이스에 접근한다. 데이터베이스를 모킹했더라도 테스트는 여전히 같은 코드 라인 수만큼 커버해서 똑같이 높은 커버리지를 보여줬을 것이다.</p><p>기본적으로 인메모리(in-memory) 데이터베이스를 테스트에서 사용한다. 아뭇것도 설정할 필요 없이 곧바로 테스트할 수 있으므로 아주 실용적이다.</p><h3 id="시스템-테스트로-주요-경로-테스트하기"><span class="mr-2">시스템 테스트로 주요 경로 테스트하기</span><a href="#시스템-테스트로-주요-경로-테스트하기" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><p>시스템 테스트는 전체 애플리케이션을 띄우고 API를 통해 요청을 보내고, 모든 계층이 조화롭게 잘 동작하는지 검증한다.</p><p><a href="https://github.com/wikibook/clean-architecture/blob/main/src/test/java/io/reflectoring/buckpal/SendMoneySystemTest.java">github code</a></p><div class="language-java highlighter-rouge"><div class="code-header"> <span data-label-text="Java"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+</pre><td class="rouge-code"><pre><span class="nd">@SpringBootTest</span><span class="o">(</span><span class="n">webEnvironment</span> <span class="o">=</span> <span class="nc">WebEnvironment</span><span class="o">.</span><span class="na">RANDOM_PORT</span><span class="o">)</span>
+<span class="kd">class</span> <span class="nc">SendMoneySystemTest</span> <span class="o">{</span>
+
+	<span class="nd">@Autowired</span>
+	<span class="kd">private</span> <span class="nc">TestRestTemplate</span> <span class="n">restTemplate</span><span class="o">;</span>
+
+	<span class="nd">@Autowired</span>
+	<span class="kd">private</span> <span class="nc">LoadAccountPort</span> <span class="n">loadAccountPort</span><span class="o">;</span>
+
+	<span class="nd">@Test</span>
+	<span class="nd">@Sql</span><span class="o">(</span><span class="s">"SendMoneySystemTest.sql"</span><span class="o">)</span>
+	<span class="kt">void</span> <span class="nf">sendMoney</span><span class="o">()</span> <span class="o">{</span>
+
+		<span class="nc">Money</span> <span class="n">initialSourceBalance</span> <span class="o">=</span> <span class="n">sourceAccount</span><span class="o">().</span><span class="na">calculateBalance</span><span class="o">();</span>
+		<span class="nc">Money</span> <span class="n">initialTargetBalance</span> <span class="o">=</span> <span class="n">targetAccount</span><span class="o">().</span><span class="na">calculateBalance</span><span class="o">();</span>
+
+		<span class="nc">ResponseEntity</span> <span class="n">response</span> <span class="o">=</span> <span class="n">whenSendMoney</span><span class="o">(</span>
+				<span class="n">sourceAccountId</span><span class="o">(),</span>
+				<span class="n">targetAccountId</span><span class="o">(),</span>
+				<span class="n">transferredAmount</span><span class="o">());</span>
+
+		<span class="n">then</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">getStatusCode</span><span class="o">())</span>
+				<span class="o">.</span><span class="na">isEqualTo</span><span class="o">(</span><span class="nc">HttpStatus</span><span class="o">.</span><span class="na">OK</span><span class="o">);</span>
+
+		<span class="n">then</span><span class="o">(</span><span class="n">sourceAccount</span><span class="o">().</span><span class="na">calculateBalance</span><span class="o">())</span>
+				<span class="o">.</span><span class="na">isEqualTo</span><span class="o">(</span><span class="n">initialSourceBalance</span><span class="o">.</span><span class="na">minus</span><span class="o">(</span><span class="n">transferredAmount</span><span class="o">()));</span>
+
+		<span class="n">then</span><span class="o">(</span><span class="n">targetAccount</span><span class="o">().</span><span class="na">calculateBalance</span><span class="o">())</span>
+				<span class="o">.</span><span class="na">isEqualTo</span><span class="o">(</span><span class="n">initialTargetBalance</span><span class="o">.</span><span class="na">plus</span><span class="o">(</span><span class="n">transferredAmount</span><span class="o">()));</span>
+
+	<span class="o">}</span>
+
+	<span class="kd">private</span> <span class="nc">Account</span> <span class="nf">sourceAccount</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="nf">loadAccount</span><span class="o">(</span><span class="n">sourceAccountId</span><span class="o">());</span>
+	<span class="o">}</span>
+
+	<span class="kd">private</span> <span class="nc">Account</span> <span class="nf">targetAccount</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="nf">loadAccount</span><span class="o">(</span><span class="n">targetAccountId</span><span class="o">());</span>
+	<span class="o">}</span>
+
+	<span class="kd">private</span> <span class="nc">Account</span> <span class="nf">loadAccount</span><span class="o">(</span><span class="nc">AccountId</span> <span class="n">accountId</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="n">loadAccountPort</span><span class="o">.</span><span class="na">loadAccount</span><span class="o">(</span>
+				<span class="n">accountId</span><span class="o">,</span>
+				<span class="nc">LocalDateTime</span><span class="o">.</span><span class="na">now</span><span class="o">());</span>
+	<span class="o">}</span>
+
+
+	<span class="kd">private</span> <span class="nc">ResponseEntity</span> <span class="nf">whenSendMoney</span><span class="o">(</span>
+			<span class="nc">AccountId</span> <span class="n">sourceAccountId</span><span class="o">,</span>
+			<span class="nc">AccountId</span> <span class="n">targetAccountId</span><span class="o">,</span>
+			<span class="nc">Money</span> <span class="n">amount</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">HttpHeaders</span> <span class="n">headers</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HttpHeaders</span><span class="o">();</span>
+		<span class="n">headers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span>
+		<span class="nc">HttpEntity</span><span class="o">&lt;</span><span class="nc">Void</span><span class="o">&gt;</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HttpEntity</span><span class="o">&lt;&gt;(</span><span class="kc">null</span><span class="o">,</span> <span class="n">headers</span><span class="o">);</span>
+
+		<span class="k">return</span> <span class="n">restTemplate</span><span class="o">.</span><span class="na">exchange</span><span class="o">(</span>
+				<span class="s">"/accounts/send/{sourceAccountId}/{targetAccountId}/{amount}"</span><span class="o">,</span>
+				<span class="nc">HttpMethod</span><span class="o">.</span><span class="na">POST</span><span class="o">,</span>
+				<span class="n">request</span><span class="o">,</span>
+				<span class="nc">Object</span><span class="o">.</span><span class="na">class</span><span class="o">,</span>
+				<span class="n">sourceAccountId</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span>
+				<span class="n">targetAccountId</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span>
+				<span class="n">amount</span><span class="o">.</span><span class="na">getAmount</span><span class="o">());</span>
+	<span class="o">}</span>
+
+    <span class="c1">//일부 헬퍼 메서드는 생략</span>
+<span class="o">}</span>
+</pre></table></code></div></div><p>시스템 테스트라고 하더라도 언제나 서드파티 시스템을 실행해서 테스트할 수 있는 것은 아니기 때문에 결국 모킹을 해야 할 때도 있다. 육각형 아키텍처는 이러한 경우 몇 개의 출력 포트 인터페이스만 모킹하면 되기 때문에 아주 쉽게 이 문제를 해결할 수 있다.</p><h3 id="얼마만큼의-테스트가-충분할까"><span class="mr-2">얼마만큼의 테스트가 충분할까??</span><a href="#얼마만큼의-테스트가-충분할까" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><p>테스트가 코드의 80%를 커버하면 충분할까? 아니면 그보다 높아야 할까??</p><p>라인 커버리지(line coverage)는 테스트 성공을 측정하는 데 있어서 잘못된 지표다.</p><p>나는 얼마나 마음 편하게 소프트웨어를 배포할 수 있느냐를 테스트의 성공 기준으로 삼으면 된다고 생각한다.</p><p>처음 몇 번의 배포에는 믿음의 도약이 필요하다. 그렇지만 <code class="language-plaintext highlighter-rouge">프로덕션의 버그를 수정하고 이로부터 배우는 것</code> 우선순위로 삼으면 제대로 가고 있는 것이다.</p><p>아래는 육각형 아키텍처에서 사용하는 테스트 전략이다.</p><ul><li>도메인 엔티티를 구현 할 때는 단위 테스트로 커버하자<li>유스케이스를 구현할 때는 단위 테스트로 커버하자<li>어댑터를 구현할 때는 통합 테스트로 커버하자<li>사용자가 취할 수 있는 중요 애플리케이션 경로는 시스템 테스트로 커버하자</ul><p><code class="language-plaintext highlighter-rouge">구현할 때는</code>이라는 문구가 중요한데, 만약 테스트가 기능 개발 후가 아닌 개발 중에 이뤄진다면 하기 싫은 귀찮은 작업이 아니라 개발 도구로 느껴질 것이다.</p></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/categories/ddd/'>DDD</a>, <a href='/categories/%EB%A7%8C%EB%93%A4%EB%A9%B4%EC%84%9C-%EB%B0%B0%EC%9A%B0%EB%8A%94-%ED%81%B4%EB%A6%B0-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/'>만들면서 배우는 클린 아키텍처</a></div><div class="post-tags"> <i class="fa fa-tags fa-fw mr-1"></i> <a href="/tags/ddd/" class="post-tag no-text-decoration" >DDD</a> <a href="/tags/cleanarchitecture/" class="post-tag no-text-decoration" >CleanArchitecture</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/"> CC BY 4.0 </a> by the author.</div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=7%EC%9E%A5.+%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98+%EC%9A%94%EC%86%8C+%ED%85%8C%EC%8A%A4%ED%8A%B8%ED%95%98%EA%B8%B0+-+%EC%9E%94%EB%8B%A4%EB%A6%AC+%EB%B8%94%EB%A1%9C%EA%B7%B8&url=https%3A%2F%2Fjandari91.github.io%2Fposts%2FMakeLearnCleanArchitecture_ch7%2F" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=7%EC%9E%A5.+%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98+%EC%9A%94%EC%86%8C+%ED%85%8C%EC%8A%A4%ED%8A%B8%ED%95%98%EA%B8%B0+-+%EC%9E%94%EB%8B%A4%EB%A6%AC+%EB%B8%94%EB%A1%9C%EA%B7%B8&u=https%3A%2F%2Fjandari91.github.io%2Fposts%2FMakeLearnCleanArchitecture_ch7%2F" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://t.me/share/url?url=https%3A%2F%2Fjandari91.github.io%2Fposts%2FMakeLearnCleanArchitecture_ch7%2F&text=7%EC%9E%A5.+%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98+%EC%9A%94%EC%86%8C+%ED%85%8C%EC%8A%A4%ED%8A%B8%ED%95%98%EA%B8%B0+-+%EC%9E%94%EB%8B%A4%EB%A6%AC+%EB%B8%94%EB%A1%9C%EA%B7%B8" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i id="copy-link" class="fa-fw fas fa-link small" data-toggle="tooltip" data-placement="top" title="Copy link" data-title-succeed="Link copied successfully!"> </i> </span></div></div></div><script src="https://utteranc.es/client.js" repo="Jandari91/Jandari91.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted"><div class="access"><div id="access-tags"><div class="panel-heading">Trending Tags</div><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/ddd/">DDD</a> <a class="post-tag" href="/tags/cleanarchitecture/">CleanArchitecture</a> <a class="post-tag" href="/tags/linux/">Linux</a> <a class="post-tag" href="/tags/setup/">Setup</a> <a class="post-tag" href="/tags/net/">.NET</a> <a class="post-tag" href="/tags/c/">C#</a> <a class="post-tag" href="/tags/cuda/">CUDA</a> <a class="post-tag" href="/tags/python/">Python</a> <a class="post-tag" href="/tags/docker/">Docker</a> <a class="post-tag" href="/tags/fastapi/">FastAPI</a></div></div></div><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script><div id="toc-wrapper" class="pl-0 pr-4 mb-5"><div class="panel-heading pl-3 pt-2 mb-2">Contents</div><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div class="col-12 col-lg-11 col-xl-8"><div id="tail-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/posts/MakeLearnCleanArchitecture_ch1/"><div class="card-body"> <em class="timeago small" data-ts="1649769300" > 2022-04-12 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>1장. 계층형 아키텍처의 문제는 무엇일까?</h3><div class="text-muted small"><p> 소개 만들면서 배우는 클린 아키텍처 책을 읽고 정리하며 소감을 적는 포스트입니다. 계층형 아키텍처의 문제점 웹 계층, 도메인 계층, 영속성 계층으로 구성된 전통적인 웹 애플리케이션 구조 계층형 아키텍처는 맨 위의 웹 계층에서 요청을 받아 도메인 계층에 있는 서비스로 요청을 보낸다. 서비스에서는 필요한 비즈니스 로직을 수행하고, 도...</p></div></div></a></div><div class="card"> <a href="/posts/MakeLearnCleanArchitecture_ch2/"><div class="card-body"> <em class="timeago small" data-ts="1649830800" > 2022-04-13 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>2장. 의존성 역전하기</h3><div class="text-muted small"><p> 소개 만들면서 배우는 클린 아키텍처 책을 읽고 정리하며 소감을 적는 포스트입니다. 의존성 역전하기 단일 책임 원칙(SRP, Single Responsibility Principle) 우리가 잘 알고 있는 정의는 하나의 컴포넌트는 오로지 한 가지 일만 해야하고, 그것을 올바르게 수행해야 한다. 하지만 실제 정의는 컴포넌트를 ...</p></div></div></a></div><div class="card"> <a href="/posts/MakeLearnCleanArchitecture_ch3/"><div class="card-body"> <em class="timeago small" data-ts="1649942400" > 2022-04-14 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>3장. 코드 구성하기</h3><div class="text-muted small"><p> 소개 만들면서 배우는 클린 아키텍처 책을 읽고 정리하며 소감을 적는 포스트입니다. 코드 구성하기 코드를 보는 것만으로도 아키텍처가 파악 된다면 굉장히 좋을 것입니다. 이번 포스트는 BuckPal 예제 코드를 구조화 하기 위해 육각형 아키텍처를 직접 레이아웃을 구성하도록 하겠습니다. 아래는 사용자가 본인의 계좌에서 다른 계좌로 돈을 송금할 ...</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <a href="/posts/MakeLearnCleanArchitecture_ch6/" class="btn btn-outline-primary" prompt="Older"><p>6장. 영속성 어댑터 구현하기</p></a> <a href="/posts/MakeLearnCleanArchitecture_ch8/" class="btn btn-outline-primary" prompt="Newer"><p>8장. 경계 간 매핑하기</p></a></div></div></div></div><footer class="d-flex w-100 justify-content-center"><div class="d-flex justify-content-between align-items-center text-muted"><div class="footer-left"><p class="mb-0"> © 2023 <a href="https://github.com/Jandari91">Jandari</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-sm-11 post-content"><div id="search-hints"><div id="access-tags"><div class="panel-heading">Trending Tags</div><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/ddd/">DDD</a> <a class="post-tag" href="/tags/cleanarchitecture/">CleanArchitecture</a> <a class="post-tag" href="/tags/linux/">Linux</a> <a class="post-tag" href="/tags/setup/">Setup</a> <a class="post-tag" href="/tags/net/">.NET</a> <a class="post-tag" href="/tags/c/">C#</a> <a class="post-tag" href="/tags/cuda/">CUDA</a> <a class="post-tag" href="/tags/python/">Python</a> <a class="post-tag" href="/tags/docker/">Docker</a> <a class="post-tag" href="/tags/fastapi/">FastAPI</a></div></div></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><script src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js"></script> <script> $(function() { function updateMermaid(event) { if (event.source === window && event.data && event.data.direction === ModeToggle.ID) { const mode = event.data.message; if (typeof mermaid === "undefined") { return; } let expectedTheme = (mode === ModeToggle.DARK_MODE? "dark" : "default"); let config = { theme: expectedTheme }; /* Re-render the SVG › <https://github.com/mermaid-js/mermaid/issues/311#issuecomment-332557344> */ $(".mermaid").each(function() { let svgCode = $(this).prev().children().html(); $(this).removeAttr("data-processed"); $(this).html(svgCode); }); mermaid.initialize(config); mermaid.init(undefined, ".mermaid"); } } let initTheme = "default"; if ($("html[data-mode=dark]").length > 0 || ($("html[data-mode]").length == 0 && window.matchMedia("(prefers-color-scheme: dark)").matches ) ) { initTheme = "dark"; } let mermaidConf = { theme: initTheme /* <default|dark|forest|neutral> */ }; /* Markdown converts to HTML */ $("pre").has("code.language-mermaid").each(function() { let svgCode = $(this).children().html(); $(this).addClass("unloaded"); $(this).after(`<div class=\"mermaid\">${svgCode}</div>`); }); mermaid.initialize(mermaidConf); window.addEventListener("message", updateMermaid); }); </script><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a> <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"> {categories} {tags}</div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No result founds.</p>', templateMiddleware: function(prop, value, template) { if (prop === 'categories') { if (value === '') { return `${value}`; } else { return `<div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>${value}</div>`; } } if (prop === 'tags') { if (value === '') { return `${value}`; } else { return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`; } } } }); </script> <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script> <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/ko.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script> <script defer src="/assets/js/dist/post.min.js"></script> <script> /* see: <https://docs.mathjax.org/en/latest/options/input/tex.html#tex-options> */ MathJax = { tex: { inlineMath: [ /* start/end delimiter pairs for in-line math */ ['$','$'], ['\\(','\\)'] ], displayMath: [ /* start/end delimiter pairs for display math */ ['$$', '$$'], ['\\[', '\\]'] ] } }; </script> <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"> </script> <script src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.bundle.min.js"></script> <script defer src="/app.js"></script>
